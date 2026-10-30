@@ -15,11 +15,11 @@ Website: https://kamelopard.github.io/
 
 1. `assets` 폴더에서 **Add file → Upload files**로 이미지를 올립니다.
 2. `index.html`에서 해당 이미지의 `src` 경로를 새 파일 이름으로 바꿉니다.
-   1. 프로필 사진: `assets/profile.svg`
-   2. 대표 연구 그림: `assets/research-01.svg`, `assets/research-02.svg`
+   1. 프로필 사진: `assets/profile.jpg`
+   2. 논문 이미지: `assets/pub-연도-학회-주제.png` (현재는 각 논문 첫 페이지의 제목 부분)
 
 ## 참고
 
 1. 논문 항목 중 `data-featured`가 붙은 앞의 두 개가 홈 화면 "대표 연구"에 표시됩니다.
-2. 논문, 특허, 과제 항목은 현재 입력 양식 예시입니다. 실제 정보로 교체하고, 다 채운 뒤에는 `example-note` 안내 문단을 지워도 됩니다.
+2. 논문 분류에 항목을 추가하면 그 분류의 `empty-state` 문단(“등록된 … 없습니다”)을 지웁니다.
 3. 저장소 쓰기 권한이 있는 계정만 수정할 수 있습니다.
