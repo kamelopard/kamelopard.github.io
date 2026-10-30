@@ -6,6 +6,8 @@
   <!-- 수정 1: 검색 결과와 브라우저 탭에 표시되는 정보 -->
   <title>김민준 | 연구 포트폴리오</title>
   <meta name="description" content="김민준의 연구 관심 분야와 논문, 특허, 참여과제를 소개합니다.">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <style>
     /* 수정: 포인트 색상은 --accent, 전체 폭은 --width에서 변경합니다. */
     :root { --accent:#2a6a72; --ink:#263438; --muted:#657278; --line:#e3e9e8; --soft:#f3f7f6; --width:1760px; }
@@ -380,7 +382,7 @@
   </div>
 
   <!-- 수정 8: 최종 수정일. 예시 안내는 실제 정보를 채운 후 삭제해도 됩니다. -->
-  <footer class="footer"><div class="footer-inner"><span>© <span id="copyright-year">2026</span> <span id="footer-name">김민준</span> · 연구 포트폴리오</span><span>마지막 업데이트 · 2026.10</span></div></footer>
+  <footer class="footer"><div class="footer-inner"><span>© <span id="copyright-year">2026</span> <span id="footer-name">김민준</span> · 연구 포트폴리오</span><span>마지막 업데이트 · <span id="last-updated">2026.10.30</span></span></div></footer>
 
   <script>
     // 아래는 메뉴 전환과 대표 연구 자동 표시 기능입니다. 일반적인 내용 수정에는 변경할 필요가 없습니다.
@@ -432,6 +434,15 @@
       const status = project.querySelector('.record-meta .status');
       if (status) { status.textContent = '종료'; status.classList.add('pending'); }
     });
+    // 마지막 업데이트: 저장소의 최근 커밋 날짜를 불러옵니다. 실패하면 위에 적힌 날짜를 그대로 둡니다.
+    fetch('https://api.github.com/repos/kamelopard/kamelopard.github.io/commits?per_page=1')
+      .then(response => response.ok ? response.json() : Promise.reject())
+      .then(commits => {
+        const date = new Date(commits[0].commit.committer.date);
+        const pad = n => String(n).padStart(2, '0');
+        document.getElementById('last-updated').textContent = `${date.getFullYear()}.${pad(date.getMonth() + 1)}.${pad(date.getDate())}`;
+      })
+      .catch(() => {});
     window.addEventListener('hashchange', () => showPage(true));
     showPage();
   </script>
