@@ -16,7 +16,8 @@ Website: https://kamelopard.github.io/
 1. `assets` 폴더에서 **Add file → Upload files**로 이미지를 올립니다.
 2. `index.html`에서 해당 이미지의 `src` 경로를 새 파일 이름으로 바꿉니다.
    1. 프로필 사진: `assets/profile.jpg`
-   2. 논문 이미지: `assets/pub-연도-학회-주제.png` (현재는 각 논문 첫 페이지의 제목 부분)
+   2. 논문 이미지: 학술대회 포스터 `assets/conf-연도-학회-시즌.jpg`
+   3. 과제 이미지: 전문기관 로고 `assets/logo-nrf.png`, `assets/logo-kiat.png`
 
 ## 참고
 

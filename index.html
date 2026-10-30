@@ -140,6 +140,19 @@
       .publication-filters { display:grid; grid-template-columns:1fr 1fr; }
       .publication-filters button { font-size:13px; padding:10px; }
     }
+    /* 한글 아래 영문 표기, 학회 포스터·지원기관 로고 이미지 */
+    .en { display:block; color:var(--muted); font-size:.82em; line-height:1.5; margin:1px 0 9px; letter-spacing:-.1px; }
+    .degree .en-inline { margin-left:8px; color:var(--muted); font-weight:500; font-size:.82em; }
+    .profile-details div { margin-bottom:14px; }
+    .profile-details dt { display:block; font-size:.85em; margin:0 0 1px; }
+    .profile-details dd { display:block; }
+    .profile-details dd .en { margin-bottom:0; }
+    .research-image.cover { aspect-ratio:auto; height:auto; max-width:210px; object-fit:contain; background:none; border:1px solid var(--line); }
+    .research-image.logo { background:#fff; padding:18px 22px; }
+    @media(max-width:680px) {
+      .research-image.cover { max-width:150px; max-height:none; aspect-ratio:auto; }
+      .research-image.logo { max-height:150px; aspect-ratio:2.2; }
+    }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
     @media print { .masthead, .skip { display:none; } .layout { display:block; padding:0; } .profile { position:static; } .profile-photo { width:80px; height:80px; } .publication,.text-record { break-inside:avoid; } }
   </style>
@@ -164,18 +177,18 @@
   <div class="layout">
     <!-- 수정 3: 공통 프로필. 이름을 누르면 메인 화면으로 이동합니다. -->
     <aside class="profile" aria-label="연구자 프로필">
-      <img class="profile-photo" src="assets/profile.jpg" alt="김민준 프로필 사진" width="430" height="430">
+      <img class="profile-photo" src="assets/profile.jpg" alt="김민준 프로필 사진" width="430" height="553">
       <h2 class="profile-name"><a href="#home" id="profile-name">김민준</a></h2>
       <p class="english-name">Minjun Kim</p>
-      <p class="degree">학부생</p>
-      <p class="affiliation">국립공주대학교 · 전기전자제어공학부<br>AI-EBS LAB</p>
+      <p class="degree">학부생<span class="en-inline">Undergraduate Student</span></p>
+      <p class="affiliation">국립공주대학교<span class="en">Kongju National University</span>전기전자제어공학부<span class="en">Department of Electrical, Electronic and Control Engineering</span>AI-EBS LAB</p>
       <dl class="profile-details">
-        <div><dt>지도교수</dt><dd>김선혁 교수</dd></div>
+        <div><dt>지도교수</dt><dd>김선혁 교수<span class="en">Prof. Seon Hyeog Kim</span></dd></div>
         <!-- 이메일은 화면 글자와 mailto: 뒤의 주소를 함께 변경하세요. -->
-        <div><dt>이메일</dt><dd><a href="mailto:kmj728mmin5636@smail.kongju.ac.kr">kmj728mmin5636@smail.kongju.ac.kr</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:kmj728mmin5636@smail.kongju.ac.kr">kmj728mmin5636@smail.kongju.ac.kr</a></dd></div>
       </dl>
       <!-- 연구실 주소는 title이 아니라 href에 입력합니다. -->
-      <a class="lab-link" href="https://sites.google.com/view/aienergylab/main?authuser=0" target="_blank" rel="noopener noreferrer">연구실 홈페이지 <span aria-hidden="true">↗</span></a>
+      <a class="lab-link" href="https://sites.google.com/view/aienergylab/main?authuser=0" target="_blank" rel="noopener noreferrer">Lab Homepage <span aria-hidden="true">↗</span></a>
     </aside>
 
     <main id="main-content" tabindex="-1">
@@ -184,7 +197,7 @@
         <p class="eyebrow">RESEARCH PROFILE</p>
         <h1 id="home-title">Academic personal website from Minjun Kim</h1>
         <!-- 연구 소개 문단입니다. 두세 문장으로 작성하세요. -->
-        <p class="intro">[연구 소개를 입력하세요. 소속 연구실에서 어떤 주제를 연구하고 있는지, 어떤 문제에 관심을 두고 있는지 두세 문장으로 적습니다.]</p>
+        <p class="intro">국립공주대학교 AI 에너지 및 배터리 솔루션 연구실(AI-EBS LAB)에서 배터리 에너지 저장 시스템(BESS)과 공장 에너지 관리 시스템(FEMS)을 연구하고 있습니다. 배터리의 건강 상태(SOH) 추정과 이상 진단, 그리고 제조공정 데이터를 활용한 공정 예측과 에너지·탄소 저감 방법에 관심을 두고 있습니다.</p>
         <div class="interest-block">
           <h2 class="minor-heading">연구 관심 분야</h2>
           <ul class="interests"><li>Battery Energy Storage Systems</li><li>Factory Energy Management Systems</li></ul>
@@ -220,34 +233,37 @@
         <h2 class="category-title">Domestic Conferences</h2>
         <h2 class="year-label">2026</h2>
         <article class="publication" data-featured>
-          <img class="research-image" src="assets/pub-2026-kiee-process.png" alt="연속 공정의 예측 모델 구축을 위한 시계열 데이터 처리 조합 최적화 연구 논문 제목" width="1520" height="295">
+          <img class="research-image cover" src="assets/conf-2026-kiee-summer.jpg" alt="2026 대한전기학회 하계학술대회 포스터" width="518" height="752">
           <div>
             <p class="record-meta"><span>2026 · 국내 학술대회</span><span class="status">게재 완료</span></p>
             <h3 class="record-title">연속 공정의 예측 모델 구축을 위한 시계열 데이터 처리 조합 최적화 연구</h3>
             <p class="authors"><strong>김민준</strong>, 조윤호, 조재영, 권구영, 김선혁</p>
             <p class="venue">2026년도 대한전기학회 하계학술대회 논문집 · pp. 2751–2752 · 2026</p>
-            <p class="summary">연속 공정 예측 모델의 입력 전처리 단계에서 평활화 3종, 특징 선택 4종, 시퀀스 길이 설정 3종을 결합한 36가지 조합을 실제 공정 데이터로 비교하였습니다. 전건조·후건조 영역마다 최적 조합이 달라지며, 체계적인 데이터 가공 조합이 예측 정확도를 높일 수 있음을 확인하였습니다.</p>
+            <p class="summary">본 논문은 연속 공정의 예측 모델 구축 시 예측 성능을 최적화하기 위한 평활화, 특징 선택, 시퀀스 길이 결정이 미치는 영향에 관한 연구를 수행하였다. 실제 공정 데이터를 대상으로 평활화 3종, 특징 선택 4종, 시퀀스 길이 설정 3종을 결합한 총 36가지 조합의 성능을 평가하였을 때, 전건조 영역에서는 SMA, MI, 고정 창 조합이 RMSE 0.031, MAE 0.019, <i>R</i><sup>2</sup> 0.982, 비선형성이 강한 후건조 영역에서는 SMA, mRMR, AMI 조합이 RMSE 0.023, MAE 0.019, <i>R</i><sup>2</sup> 0.977의 결과를 보였다. 이를 통해 물리적 메커니즘 파악이 어려운 산업 데이터 환경에서 모델 입력 전 단계의 체계적인 데이터 가공 조합이 예측 정확도를 향상할 수 있음을 확인하였다.</p>
+            <div class="record-links"><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12939047" target="_blank" rel="noopener noreferrer">논문 ↗</a></div>
           </div>
         </article>
         <article class="publication" data-featured>
-          <img class="research-image" src="assets/pub-2026-kics-mtt-soh.png" alt="정전류 충전 전압 궤적을 보조인자로 활용한 Multi-Task Transformer 기반 SOH 추정 논문 제목" width="1354" height="345">
+          <img class="research-image cover" src="assets/conf-2026-kics-winter.jpg" alt="2026년도 한국통신학회 동계종합학술발표회 포스터" width="340" height="465">
           <div>
             <p class="record-meta"><span>2026 · 국내 학술대회</span><span class="status">게재 완료</span></p>
             <h3 class="record-title">정전류 충전 전압 궤적을 보조인자로 활용한 Multi-Task Transformer 기반 SOH 추정</h3>
             <p class="authors"><strong>김민준</strong>, 고동영, 김선혁</p>
             <p class="venue">2026년도 한국통신학회 동계종합학술발표회 · pp. 149–150 · 2026</p>
-            <p class="summary">정전류 충전 구간 전압 궤적의 기울기 변화에서 얻은 이상치 점수를 보조인자로 삼아, Multi-Task Transformer의 SOH 예측과 결합하는 구조를 제안하였습니다. MIT 데이터셋에서 Transformer 단독 모델 대비 RMSE 12.90%, MAE 13.34% 개선을 보였습니다.</p>
+            <p class="summary">최근 리튬 이온 배터리의 건강 상태(State of Health, SOH)를 정확하게 추정하는 것은 전기차(EV) 및 에너지 저장 장치(ESS)의 안전한 운용과 잔여 수명 예측을 위한 핵심 과제이다. 본 논문에서는 실제 운행 환경의 불규칙한 방전 데이터가 가지는 한계를 극복하기 위해, 전기차의 정전류 충전 과정 중 발생하는 전압 궤적 데이터를 입력으로 Multi-Task Transformer의 예측 결과와 결합하여 SOH 추정 성능을 개선하는 아키텍처를 제안한다. MIT 데이터셋을 활용한 실험 결과, 제안된 모델은 기존 Transformer 단독 모델 대비 RMSE 12.90%, MAE 13.34%의 성능 향상을 달성하였고, 배터리 상태 진단 정확도는 88.25%로 5.80%p 향상되었으며, F1-Score는 0.7456으로 0.0699만큼 개선되었다. 이는 전압 궤적의 기울기 변화율 기반의 이상치 점수가 용량 감소 학습의 한계를 보완하는 보조 인자임을 입증하며, 향후 실시간 배터리 관리 시스템(BMS)의 정밀도 향상에 기여할 것으로 기대된다.</p>
+            <div class="record-links"><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12738085" target="_blank" rel="noopener noreferrer">논문 ↗</a></div>
           </div>
         </article>
         <h2 class="year-label">2025</h2>
         <article class="publication">
-          <img class="research-image" src="assets/pub-2025-kics-iforest.png" alt="배터리 노화 패턴 필터링을 통한 Transformer-Isolation Forest 모델 제안 논문 제목" width="1229" height="375">
+          <img class="research-image cover" src="assets/conf-2025-kics-fall.jpg" alt="2025년도 한국통신학회 추계종합학술발표회 포스터" width="340" height="465">
           <div>
             <p class="record-meta"><span>2025 · 국내 학술대회</span><span class="status">게재 완료</span></p>
             <h3 class="record-title">배터리 노화 패턴 필터링을 통한 Transformer-Isolation Forest 모델 제안</h3>
             <p class="authors"><strong>김민준</strong>, 고동영, 김선혁</p>
             <p class="venue">2025년도 한국통신학회 추계종합학술발표회 · pp. 136–137 · 2025</p>
-            <p class="summary">Transformer로 배터리 데이터의 잠재 특징을 추출하고, Isolation Forest로 정상 노화 패턴에서 벗어난 데이터를 걸러내는 2단계 전처리 모델을 제안하였습니다. NASA 데이터셋으로 필터링 성능을 검증하였습니다.</p>
+            <p class="summary">본 논문은 Transformer 기반 특징 추출과 Isolation Forest 기반 필터링을 결합한 Transformer-Isolation Forest 모델을 제안한다. 제안 모델은 Transformer로 배터리 데이터의 잠재 특징을 추출한 뒤, Isolation Forest를 이용해 정상 상태 패턴에서 벗어나는 데이터를 제거한다. NASA 데이터셋을 이용한 실험을 통해 제안 모델의 필터링 성능을 검증하였으며, 이는 배터리 수명 예측 모델의 데이터 품질을 향상시키는 효과적인 전처리 프레임워크를 제시한다.</p>
+            <div class="record-links"><a href="https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12566680" target="_blank" rel="noopener noreferrer">논문 ↗</a></div>
           </div>
         </article>
         </div>
@@ -273,27 +289,54 @@
       <section id="projects" class="page" aria-labelledby="projects-title">
         <p class="eyebrow">RESEARCH PROJECTS</p>
         <h1 id="projects-title">Projects</h1>
-        <article class="text-record">
-          <p class="record-meta"><span>학술연구과제</span><span class="status">진행 중</span></p>
-          <h2 class="record-title">이차전지 AI 파운데이션 모델 개발을 위한 데이터 표준화 전략 및 활용 기반 구축 방안 연구</h2>
-          <p class="venue">Research on Data Standardization Strategy and Application Framework for Secondary Battery AI Foundation Model Development</p>
-          <p class="summary">이차전지 AI 파운데이션 모델 개발을 위한 실측-가상연계형 데이터 표준화 전략 수립</p>
-          <dl class="record-fields">
-            <dt>참여 기간</dt><dd>2026.07 – 2027.03</dd>
-            <dt>사업명</dt><dd>학술연구</dd>
-            <dt>지원기관</dt><dd>한국연구재단(NRF)</dd>
-          </dl>
+        <!-- 과제 하나가 article 블록 하나입니다. 이미지는 전문기관 로고입니다. -->
+        <article class="publication">
+          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단 로고" width="662" height="283">
+          <div>
+            <p class="record-meta"><span>기초연구과제</span><span class="status">진행 중</span></p>
+            <h2 class="record-title">AI Agent 기반 통합 진단 및 자율추론을 통한 제조공정 에너지 최적화 기술 개발</h2>
+            <p class="venue">AIDER: AI-based Integrated Diagnosis and Energy Reasoning for Optimization in Manufacturing Processes</p>
+            <p class="summary">제조공정 에너지 이상탐지·원인분석·저감추론을 통합한 AI Agent 기반 에너지 최적화 기술 개발</p>
+            <dl class="record-fields">
+              <dt>참여 기간</dt><dd>2026.09 – 2031.08</dd>
+              <dt>사업명</dt><dd>개인기초연구(과기정통부)(R&amp;D)</dd>
+              <dt>지원 부처</dt><dd>과학기술정보통신부</dd>
+              <dt>전문기관</dt><dd>한국연구재단(NRF)</dd>
+              <dt>주관기관</dt><dd>국립공주대학교</dd>
+            </dl>
+          </div>
         </article>
-        <article class="text-record">
-          <p class="record-meta"><span>연구개발과제</span><span class="status">진행 중</span></p>
-          <h2 class="record-title">배터리·자동차 산업 대상 제품 전주기 탄소발자국 플랫폼(MCF) 개발 및 AI기술 기반 탄소저감 기술 개발</h2>
-          <p class="venue">Development of Carbon Footprint Platform (MCF) and AI technology-based carbon reduction technology for battery and automotive industries</p>
-          <p class="summary">인공지능 기반의 MCF 분석 기능 및 탄소 저감 기술 개발</p>
-          <dl class="record-fields">
-            <dt>참여 기간</dt><dd>2025.05 – 2027.12</dd>
-            <dt>사업명</dt><dd>제조데이터표준인공지능활용제품전주기탄소중립지원기술개발(R&amp;D)</dd>
-            <dt>지원기관</dt><dd>산업통상자원부 · 한국산업기술진흥원(KIAT)</dd>
-          </dl>
+        <article class="publication">
+          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단 로고" width="662" height="283">
+          <div>
+            <p class="record-meta"><span>학술연구과제</span><span class="status">진행 중</span></p>
+            <h2 class="record-title">이차전지 AI 파운데이션 모델 개발을 위한 데이터 표준화 전략 및 활용 기반 구축 방안 연구</h2>
+            <p class="venue">Research on Data Standardization Strategy and Application Framework for Secondary Battery AI Foundation Model Development</p>
+            <p class="summary">이차전지 AI 파운데이션 모델 개발을 위한 실측-가상연계형 데이터 표준화 전략 수립</p>
+            <dl class="record-fields">
+              <dt>참여 기간</dt><dd>2026.07 – 2027.03</dd>
+              <dt>사업명</dt><dd>학술연구</dd>
+              <dt>지원 부처</dt><dd>과학기술정보통신부</dd>
+              <dt>전문기관</dt><dd>한국연구재단(NRF)</dd>
+              <dt>주관기관</dt><dd>국립공주대학교</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="publication">
+          <img class="research-image logo" src="assets/logo-kiat.png" alt="한국산업기술진흥원 로고" width="475" height="125">
+          <div>
+            <p class="record-meta"><span>연구개발과제</span><span class="status">진행 중</span></p>
+            <h2 class="record-title">배터리·자동차 산업 대상 제품 전주기 탄소발자국 플랫폼(MCF) 개발 및 AI기술 기반 탄소저감 기술 개발</h2>
+            <p class="venue">Development of Carbon Footprint Platform (MCF) and AI technology-based carbon reduction technology for battery and automotive industries</p>
+            <p class="summary">인공지능 기반의 MCF 분석 기능 및 탄소 저감 기술 개발</p>
+            <dl class="record-fields">
+              <dt>참여 기간</dt><dd>2025.05 – 2027.12</dd>
+              <dt>사업명</dt><dd>제조데이터표준인공지능활용제품전주기탄소중립지원기술개발(R&amp;D)</dd>
+              <dt>지원 부처</dt><dd>산업통상자원부</dd>
+              <dt>전문기관</dt><dd>한국산업기술진흥원(KIAT)</dd>
+              <dt>주관기관</dt><dd>한국전자통신연구원(ETRI)</dd>
+            </dl>
+          </div>
         </article>
       </section>
       <noscript><p>JavaScript가 꺼져 있어 전체 실적을 한 페이지에 표시합니다. 위 메뉴로 각 목록에 이동할 수 있습니다.</p></noscript>
