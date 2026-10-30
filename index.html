@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 수정 1: 검색 결과와 브라우저 탭에 표시되는 정보 -->
+  <title>김민준 | 연구 포트폴리오</title>
+  <meta name="description" content="김민준의 연구 관심 분야와 논문, 특허, 참여과제를 소개합니다.">
+  <style>
+    /* 수정: 포인트 색상은 --accent, 전체 폭은 --width에서 변경합니다. */
+    :root { --accent:#2a6a72; --ink:#263438; --muted:#657278; --line:#e3e9e8; --soft:#f3f7f6; --width:1760px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:#fff; color:var(--ink); font-family:"Pretendard","Noto Sans KR","Malgun Gothic",Arial,sans-serif; font-size:15px; line-height:1.8; word-break:keep-all; overflow-wrap:anywhere; }
+    a { color:var(--accent); text-decoration:none; }
+    a:hover { text-decoration:underline; text-underline-offset:4px; }
+    a:focus-visible { outline:3px solid var(--accent); outline-offset:5px; border-radius:2px; }
+    a:not([href]) { color:var(--muted); cursor:default; text-decoration:none; }
+    img { max-width:100%; display:block; }
+    .skip { position:absolute; top:-80px; left:20px; background:#fff; padding:8px 16px; z-index:5; }
+    .skip:focus { top:10px; }
+    .masthead { border-bottom:1px solid var(--line); }
+    .header-inner { max-width:var(--width); margin:auto; min-height:88px; padding:0 30px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .brand { display:flex; align-items:center; gap:13px; color:var(--ink); }
+    .brand img { width:38px; height:38px; object-fit:contain; }
+    .brand strong { display:block; font-size:17px; letter-spacing:-.6px; }
+    .brand small { display:block; font-size:10px; color:var(--muted); letter-spacing:1.8px; line-height:1.5; }
+    nav { display:flex; gap:32px; align-self:stretch; align-items:stretch; }
+    nav a { display:flex; align-items:center; position:relative; font-size:14px; color:var(--muted); font-weight:600; white-space:nowrap; }
+    nav a[aria-current="page"] { color:var(--accent); }
+    nav a[aria-current="page"]:after { content:""; position:absolute; bottom:-1px; left:0; right:0; height:3px; background:var(--accent); }
+    .layout { max-width:var(--width); margin:auto; padding:54px 30px 80px; display:grid; grid-template-columns:220px minmax(0,1fr); gap:72px; min-height:calc(100vh - 177px); }
+    .profile-photo { width:152px; height:152px; object-fit:cover; border-radius:50%; margin:0 0 25px; border:1px solid var(--line); padding:5px; background:#fff; }
+    .profile-name { margin:0; font-size:26px; line-height:1.45; font-weight:750; letter-spacing:-1px; }
+    .profile-name a { color:inherit; }
+    .english-name { margin:1px 0 15px; color:var(--muted); font-size:14px; }
+    .degree { font-size:14px; font-weight:600; margin:0 0 4px; }
+    .affiliation { margin:0; color:var(--muted); font-size:13px; line-height:1.9; }
+    .profile-details { margin:23px 0; padding-top:18px; border-top:1px solid var(--line); font-size:12px; }
+    .profile-details div { margin-bottom:8px; }
+    .profile-details dt { display:inline; color:var(--muted); margin-right:8px; }
+    .profile-details dd { display:inline; margin:0; }
+    .lab-link { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:600; }
+    .eyebrow { font-size:10px; letter-spacing:2.2px; color:var(--accent); font-weight:700; margin:0 0 10px; }
+    h1 { font-size:31px; letter-spacing:-1.2px; line-height:1.45; margin:0 0 16px; font-weight:700; }
+    .intro { color:var(--muted); margin:0; font-size:15px; line-height:1.95; max-width:650px; }
+    .interest-block { margin:27px 0 39px; }
+    .minor-heading { font-size:12px; font-weight:700; margin:0 0 11px; }
+    .interests { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0; }
+    .interests li { font-size:12px; background:var(--soft); padding:4px 12px; color:var(--accent); border-radius:3px; }
+    .section-heading { border-bottom:1px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-bottom:12px; margin-bottom:0; }
+    .section-heading h2 { font-size:21px; letter-spacing:-.7px; margin:0; }
+    .section-heading a { font-size:12px; white-space:nowrap; }
+    .publication { display:grid; grid-template-columns:190px minmax(0,1fr); gap:25px; padding:26px 0; border-bottom:1px solid var(--line); align-items:start; }
+    .research-image { width:100%; height:auto; aspect-ratio:1.45; object-fit:contain; background:var(--soft); border:1px solid var(--line); border-radius:4px; }
+    .record-meta { display:flex; gap:9px; align-items:center; flex-wrap:wrap; font-size:11px; color:var(--muted); margin:0 0 7px; }
+    .status { font-size:10px; line-height:1.6; padding:1px 6px; border:1px solid #c7dcd8; border-radius:3px; color:var(--accent); }
+    .status.pending { border-color:#ddd6c6; color:#80724d; }
+    .record-title { font-size:17px; line-height:1.6; letter-spacing:-.4px; margin:0 0 7px; font-weight:700; }
+    .authors { font-size:12px; color:var(--muted); margin:0 0 4px; }
+    .venue { color:var(--muted); font-size:12px; margin:0 0 8px; }
+    .summary { font-size:13px; color:#58696e; line-height:1.8; margin:9px 0; }
+    .record-links { display:flex; flex-wrap:wrap; gap:13px; margin-top:10px; font-size:11px; font-weight:600; }
+    .record-links a:not([href]) { border-bottom:1px dotted #aeb9bb; }
+    .year-label { font-size:13px; color:var(--accent); margin:27px 0 0; font-weight:700; }
+    .text-record { padding:24px 0 27px; border-bottom:1px solid var(--line); }
+    .record-fields { margin:15px 0 0; display:grid; grid-template-columns:86px minmax(0,1fr); font-size:13px; gap:5px 14px; }
+    .record-fields dt { color:var(--muted); }
+    .record-fields dd { margin:0; }
+    .example-note { font-size:11px; color:var(--muted); margin:20px 0 0; }
+    [hidden] { display:none!important; }
+    .footer { border-top:1px solid var(--line); background:#fafbfb; }
+    .footer-inner { max-width:var(--width); padding:23px 30px; margin:auto; display:flex; justify-content:space-between; gap:12px; font-size:11px; color:var(--muted); }
+    /* 넓은 화면에서도 프로필과 연구 내용을 충분한 크기로 표시합니다. */
+    body { font-size:18px; }
+    .header-inner,.layout,.footer-inner { width:94%; }
+    .header-inner { min-height:140px; padding:14px 30px; }
+    .brand img { width:320px; height:auto; }
+    nav { gap:42px; }
+    nav a { font-size:18px; }
+    .layout { grid-template-columns:280px minmax(0,1fr); gap:70px; padding-top:48px; }
+    .profile-photo { width:240px; height:auto; object-fit:contain; border-radius:0; padding:0; border:0; }
+    .profile-name { font-size:32px; }
+    .english-name { font-size:18px; }
+    .degree { font-size:17px; }
+    .affiliation,.profile-details,.lab-link { font-size:15px; }
+    .eyebrow { font-size:12px; }
+    h1 { font-size:36px; letter-spacing:-.8px; }
+    #home-title { max-width:1000px; }
+    .intro { font-size:18px; max-width:1050px; }
+    .minor-heading { font-size:17px; }
+    .interests li { font-size:15px; padding:6px 14px; }
+    .section-heading h2 { font-size:27px; }
+    .section-heading a { font-size:15px; }
+    .publication { grid-template-columns:280px minmax(0,1fr); gap:30px; padding:30px 0; }
+    .record-title { font-size:22px; }
+    .authors,.venue { font-size:15px; }
+    .summary,.record-fields { font-size:16px; }
+    .record-meta,.record-links { font-size:14px; }
+    .status { font-size:12px; }
+    .year-label { font-size:17px; }
+    .example-note,.footer-inner { font-size:13px; }
+    .publication-filters { display:flex; flex-wrap:wrap; gap:8px; margin:26px 0 30px; }
+    .publication-filters button { font:inherit; font-size:15px; line-height:1.6; padding:10px 16px; border:1px solid var(--line); background:#fff; color:var(--muted); border-radius:4px; cursor:pointer; }
+    .publication-filters button:hover { border-color:var(--accent); color:var(--accent); }
+    .publication-filters button[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:white; }
+    .publication-filters button:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    .category-title { margin:0; font-size:24px; }
+    .empty-state { color:var(--muted); padding:30px 0; border-bottom:1px solid var(--line); }
+    @media(min-width:1101px) { .profile { align-self:start; position:sticky; top:28px; } }
+    @media(max-width:1200px) {
+      .layout { gap:40px; grid-template-columns:240px minmax(0,1fr); }
+      .publication { grid-template-columns:210px minmax(0,1fr); gap:22px; }
+      .brand img { width:270px; } nav { gap:28px; }
+    }
+    @media(max-width:1000px) {
+      .header-inner,.layout,.footer-inner { width:100%; }
+      .layout { grid-template-columns:210px minmax(0,1fr); gap:30px; }
+      .profile-photo { width:200px; }
+      .publication { grid-template-columns:1fr; }
+      .research-image { max-width:340px; }
+      nav a { font-size:16px; }
+      h1 { font-size:31px; }
+    }
+    @media(max-width:680px) {
+      .header-inner { padding:17px 22px 0; flex-wrap:wrap; gap:10px; }
+      .brand img { width:250px; height:auto; }
+      nav { width:100%; gap:24px; min-height:55px; }
+      nav a { font-size:15px; }
+      .layout { display:block; padding:28px 22px 48px; }
+      .profile { display:grid; grid-template-columns:120px minmax(0,1fr); gap:0 18px; border-bottom:1px solid var(--line); padding-bottom:24px; margin-bottom:31px; }
+      .profile-photo { width:120px; height:auto; margin:0; grid-row:1/5; padding:0; }
+      .profile-name { font-size:25px; } .english-name { margin-bottom:6px; font-size:15px; }
+      .degree,.affiliation { font-size:14px; } .profile-details { grid-column:1/-1; margin:20px 0 10px; padding:15px 0 0; }
+      .lab-link { grid-column:1/-1; }
+      h1 { font-size:28px; } .intro { font-size:16px; }
+      .publication { grid-template-columns:1fr; gap:16px; }
+      .research-image { max-width:none; max-height:260px; aspect-ratio:1.7; }
+      .record-title { font-size:20px; } .footer-inner { padding:20px 22px; flex-direction:column; gap:3px; }
+      .publication-filters { display:grid; grid-template-columns:1fr 1fr; }
+      .publication-filters button { font-size:13px; padding:10px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+    @media print { .masthead, .skip { display:none; } .layout { display:block; padding:0; } .profile { position:static; } .profile-photo { width:80px; height:80px; } .publication,.text-record { break-inside:avoid; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main-content">본문으로 바로가기</a>
+  <header class="masthead">
+    <div class="header-inner">
+      <!-- 수정 2: 연구실 로고. assets 폴더에 파일을 넣고 src를 변경하세요. -->
+      <a class="brand" href="#home" aria-label="홈으로 이동">
+        <img src="assets/lab-logo.png" alt="AI-EBS — Artificial Intelligence Energy & Battery Solutions" width="901" height="309">
+      </a>
+      <nav aria-label="주 메뉴">
+        <a href="#publications">Publications</a>
+        <a href="#patents">Patents</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- 수정 3: 공통 프로필. 이름을 누르면 메인 화면으로 이동합니다. -->
+    <aside class="profile" aria-label="연구자 프로필">
+      <img class="profile-photo" src="assets/profile.svg" alt="김민준 프로필 사진" width="551" height="709">
+      <h2 class="profile-name"><a href="#home" id="profile-name">김민준</a></h2>
+      <p class="english-name">[English Name]</p>
+      <p class="degree">학부생</p>
+      <p class="affiliation">국립공주대학교 · 전기전자제어공학부<br>AI-EBS LAB</p>
+      <dl class="profile-details">
+        <div><dt>지도교수</dt><dd>김선혁 교수</dd></div>
+        <!-- 이메일은 화면 글자와 mailto: 뒤의 주소를 함께 변경하세요. -->
+        <div><dt>이메일</dt><dd><a href="mailto:[이메일 주소]">[이메일 주소]</a></dd></div>
+      </dl>
+      <!-- 연구실 주소는 title이 아니라 href에 입력합니다. -->
+      <a class="lab-link" href="https://sites.google.com/view/aienergylab/main?authuser=0" target="_blank" rel="noopener noreferrer">연구실 홈페이지 <span aria-hidden="true">↗</span></a>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <!-- 수정 4: 메인 소개와 관심 분야 -->
+      <section id="home" class="page" aria-labelledby="home-title">
+        <p class="eyebrow">RESEARCH PROFILE</p>
+        <h1 id="home-title">Academic personal website from [English Name]</h1>
+        <!-- 연구 소개 문단입니다. 두세 문장으로 작성하세요. -->
+        <p class="intro">[연구 소개를 입력하세요. 소속 연구실에서 어떤 주제를 연구하고 있는지, 어떤 문제에 관심을 두고 있는지 두세 문장으로 적습니다.]</p>
+        <div class="interest-block">
+          <h2 class="minor-heading">연구 관심 분야</h2>
+          <ul class="interests"><li>[관심 분야 1]</li><li>[관심 분야 2]</li></ul>
+        </div>
+        <div class="section-heading"><h2>대표 연구</h2><a href="#publications">전체 논문 보기 <span aria-hidden="true">→</span></a></div>
+        <!-- 아래 목록은 논문 메뉴에서 data-featured가 붙은 논문 최대 2개를 자동으로 가져옵니다. -->
+        <div id="featured-publications"></div>
+        <p class="example-note">현재 표시된 연구 실적과 연구 그림은 교체용 예시입니다.</p>
+      </section>
+
+      <!-- 수정 5: 논문 목록. article 블록 하나가 논문 하나입니다. 복사해서 추가하세요.
+           대표 연구는 data-featured 속성이 있는 앞의 두 논문입니다.
+           링크는 <a href="https://실제논문주소">논문 ↗</a>처럼 href를 추가합니다. -->
+      <section id="publications" class="page" aria-labelledby="publications-title">
+        <p class="eyebrow">PUBLICATIONS</p>
+        <h1 id="publications-title">Publications</h1>
+        <!-- 분류 버튼의 순서: Journals(국내외 학술지) → 해외 학술대회 → 국내 학술대회 -->
+        <div class="publication-filters" role="group" aria-label="논문 분류 선택" hidden>
+          <button type="button" data-filter="journals" aria-pressed="true" aria-controls="category-journals">Journals</button>
+          <button type="button" data-filter="international" aria-pressed="false" aria-controls="category-international">International Conferences</button>
+          <button type="button" data-filter="domestic" aria-pressed="false" aria-controls="category-domestic">Domestic Conferences</button>
+        </div>
+        <!-- 각 분류 div 안에 논문 article을 추가하세요. data-featured는 대표 연구 표시입니다. -->
+        <div class="publication-category" id="category-journals" data-category="journals">
+        <h2 class="category-title">Journals</h2>
+        <h2 class="year-label">2026</h2>
+        <article class="publication" data-featured>
+          <img class="research-image" src="assets/research-01.svg" alt="대표 연구 1의 개요 이미지 자리" width="380" height="262">
+          <div>
+            <p class="record-meta"><span>2026 · 학술지</span><span class="status">게재 완료 · 예시</span></p>
+            <h3 class="record-title">[대표 논문 1] 연구의 핵심 내용을 담은 논문 제목</h3>
+            <p class="authors"><strong>김민준</strong>, 공동저자 1, 공동저자 2</p>
+            <p class="venue">학술지명 · 권(호), 페이지 · 2026</p>
+            <p class="summary">연구에서 해결한 문제와 핵심 방법을 두 문장 정도로 소개하세요. 연구의 주요 결과나 기여를 함께 적으면 좋습니다.</p>
+            <div class="record-links"><a title="href에 논문 주소를 입력하세요">논문 ↗</a><a title="href에 DOI 주소를 입력하세요">DOI ↗</a></div>
+          </div>
+        </article>
+        </div>
+        <div class="publication-category" id="category-international" data-category="international">
+        <h2 class="category-title">International Conferences</h2>
+        <h2 class="year-label">2026</h2>
+        <article class="publication" data-featured>
+          <img class="research-image" src="assets/research-02.svg" alt="대표 연구 2의 결과 이미지 자리" width="380" height="262">
+          <div>
+            <p class="record-meta"><span>2026 · 학회</span><span class="status pending">게재 승인 · 예시</span></p>
+            <h3 class="record-title">[대표 논문 2] 연구 방법과 결과를 설명하는 논문 제목</h3>
+            <p class="authors">공동저자 1, <strong>김민준</strong>, 공동저자 2</p>
+            <p class="venue">학술대회명 · 개최지 · 2026</p>
+            <p class="summary">연구를 대표하는 그림과 함께 주요 내용을 소개하세요. 자신의 역할이나 새로운 접근 방법을 짧게 덧붙일 수 있습니다.</p>
+            <div class="record-links"><a title="href에 논문 주소를 입력하세요">논문 ↗</a><a title="href에 발표자료 주소를 입력하세요">발표자료 ↗</a></div>
+          </div>
+        </article>
+        </div>
+        <div class="publication-category" id="category-domestic" data-category="domestic">
+          <h2 class="category-title">Domestic Conferences</h2>
+          <!-- 국내 학술대회 논문을 추가하면 아래 empty-state 문단을 삭제하세요. -->
+          <p class="empty-state">등록된 국내 학술대회 논문이 없습니다.</p>
+        </div>
+        <p class="example-note">위 항목과 분류는 입력 양식 예시입니다. 실제 게재 상태와 서지정보로 교체하세요.</p>
+      </section>
+
+      <!-- 수정 6: 특허. 출원 / 등록 상태를 구분하고 실제 날짜·번호로 교체하세요. -->
+      <section id="patents" class="page" aria-labelledby="patents-title">
+        <p class="eyebrow">PATENTS</p>
+        <h1 id="patents-title">Patents</h1>
+        <article class="text-record">
+          <p class="record-meta"><span>대한민국</span><span class="status">등록 · 예시</span></p>
+          <h2 class="record-title">[특허명] 핵심 기술을 활용한 방법 및 장치</h2>
+          <p class="summary">해당 기술의 목적, 적용 분야와 차별점을 간략히 설명하세요.</p>
+          <dl class="record-fields">
+            <dt>발명자</dt><dd>김민준, 공동발명자 1, 공동발명자 2</dd>
+            <dt>출원인</dt><dd>○○대학교 산학협력단</dd>
+            <dt>출원번호</dt><dd>[출원번호 입력]</dd>
+            <dt>출원일</dt><dd>[YYYY.MM.DD]</dd>
+            <dt>등록번호</dt><dd>[등록번호 입력]</dd>
+            <dt>등록일</dt><dd>[YYYY.MM.DD]</dd>
+          </dl>
+          <div class="record-links"><a title="href에 특허 상세 페이지 주소를 입력하세요">특허 상세 ↗</a></div>
+        </article>
+        <article class="text-record">
+          <p class="record-meta"><span>대한민국</span><span class="status pending">출원 · 예시</span></p>
+          <h2 class="record-title">[특허명] 연구 결과를 적용한 시스템 및 방법</h2>
+          <dl class="record-fields">
+            <dt>발명자</dt><dd>김민준, 공동발명자 1</dd>
+            <dt>출원인</dt><dd>○○대학교 산학협력단</dd>
+            <dt>출원번호</dt><dd>[출원번호 입력]</dd>
+            <dt>출원일</dt><dd>[YYYY.MM.DD]</dd>
+          </dl>
+        </article>
+        <p class="example-note">위 항목은 입력 양식 예시입니다. 공개 가능한 특허 정보로 교체하세요.</p>
+      </section>
+
+      <!-- 수정 7: 참여과제. article 블록을 복사해서 과제를 추가하세요. -->
+      <section id="projects" class="page" aria-labelledby="projects-title">
+        <p class="eyebrow">RESEARCH PROJECTS</p>
+        <h1 id="projects-title">Projects</h1>
+        <article class="text-record">
+          <p class="record-meta"><span>연구개발과제</span><span class="status">진행 중 · 예시</span></p>
+          <h2 class="record-title">[과제명] 핵심 연구 기술 개발 및 응용</h2>
+          <p class="summary">연구과제의 목표와 주요 내용을 두세 문장으로 소개하세요.</p>
+          <dl class="record-fields">
+            <dt>참여 기간</dt><dd>[YYYY.MM] – 현재</dd>
+            <dt>지원기관</dt><dd>[지원기관명]</dd>
+            <dt>주관기관</dt><dd>[주관기관명]</dd>
+            <dt>담당 역할</dt><dd>[예: 알고리즘 설계, 실험 수행, 데이터 분석]</dd>
+            <dt>주요 성과</dt><dd>[논문, 특허, 시제품 등 공개 가능한 성과]</dd>
+          </dl>
+          <div class="record-links"><a title="href에 공개된 과제 소개 주소를 입력하세요">관련 자료 ↗</a></div>
+        </article>
+        <article class="text-record">
+          <p class="record-meta"><span>산학협력과제</span><span class="status pending">종료 · 예시</span></p>
+          <h2 class="record-title">[과제명] 산업 현장 문제 해결을 위한 공동 연구</h2>
+          <dl class="record-fields">
+            <dt>참여 기간</dt><dd>[YYYY.MM] – [YYYY.MM]</dd>
+            <dt>협력기관</dt><dd>[기업 또는 기관명]</dd>
+            <dt>담당 역할</dt><dd>[본인이 맡은 연구 및 개발 내용]</dd>
+            <dt>주요 성과</dt><dd>[공개 가능한 연구 결과]</dd>
+          </dl>
+        </article>
+        <p class="example-note">위 항목은 입력 양식 예시입니다. 실제 참여한 과제 정보로 교체하세요.</p>
+      </section>
+      <noscript><p>JavaScript가 꺼져 있어 전체 실적을 한 페이지에 표시합니다. 위 메뉴로 각 목록에 이동할 수 있습니다.</p></noscript>
+    </main>
+  </div>
+
+  <!-- 수정 8: 최종 수정일. 예시 안내는 실제 정보를 채운 후 삭제해도 됩니다. -->
+  <footer class="footer"><div class="footer-inner"><span>© <span id="copyright-year">2026</span> <span id="footer-name">김민준</span> · 연구 포트폴리오</span><span>마지막 업데이트 · 2026.10</span></div></footer>
+
+  <script>
+    // 아래는 메뉴 전환과 대표 연구 자동 표시 기능입니다. 일반적인 내용 수정에는 변경할 필요가 없습니다.
+    const pages = [...document.querySelectorAll('.page')];
+    const navLinks = [...document.querySelectorAll('nav a')];
+    const name = document.getElementById('profile-name').textContent.trim();
+    const pageLabels = { home:'Academic Profile', publications:'Publications', patents:'Patents', projects:'Projects' };
+    document.getElementById('footer-name').textContent = name;
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    document.querySelectorAll('#publications [data-featured]').forEach((article, i) => {
+      if (i < 2) {
+        const copy = article.cloneNode(true);
+        copy.removeAttribute('data-featured');
+        copy.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+        document.getElementById('featured-publications').append(copy);
+      }
+    });
+    // 분류를 바꾸어도 메인 대표 연구 2개는 그대로 유지됩니다.
+    const filters = [...document.querySelectorAll('[data-filter]')];
+    const categories = [...document.querySelectorAll('.publication-category')];
+    function filterPublications(category) {
+      categories.forEach(group => { group.hidden = group.dataset.category !== category; });
+      filters.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.filter === category)));
+    }
+    filters.forEach(button => button.addEventListener('click', () => filterPublications(button.dataset.filter)));
+    document.querySelector('.publication-filters').hidden = false;
+    filterPublications('journals');
+    function showPage(moveFocus = false) {
+      const requested = location.hash.slice(1) || 'home';
+      if (requested === 'main-content' && moveFocus) return;
+      const current = Object.hasOwn(pageLabels, requested) ? requested : 'home';
+      pages.forEach(page => { page.hidden = page.id !== current; });
+      navLinks.forEach(link => {
+        if (link.hash === '#' + current) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+      document.title = name + ' | ' + pageLabels[current];
+      if (moveFocus) { document.getElementById('main-content').focus({ preventScroll:true }); window.scrollTo(0,0); }
+    }
+    window.addEventListener('hashchange', () => showPage(true));
+    showPage();
+  </script>
+</body>
+</html>
