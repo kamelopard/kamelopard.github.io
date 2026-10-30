@@ -148,10 +148,13 @@
     .profile-details dd { display:block; }
     .profile-details dd .en { margin-bottom:0; }
     .research-image.cover { aspect-ratio:auto; height:auto; max-width:210px; object-fit:contain; background:none; border:1px solid var(--line); }
-    .research-image.logo { background:#fff; padding:18px 22px; }
+    .research-image.logo { background:none; border:0; padding:0; border-radius:0; }
+    .ministry-logo { display:inline-block; height:34px; width:auto; vertical-align:middle; }
     @media(max-width:680px) {
       .research-image.cover { max-width:150px; max-height:none; aspect-ratio:auto; }
-      .research-image.logo { max-height:150px; aspect-ratio:2.2; }
+      .research-image.logo { max-height:120px; max-width:280px; aspect-ratio:2.2; }
+      .degree .en-inline { display:block; margin-left:0; }
+      .ministry-logo { height:28px; }
     }
     @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
     @media print { .masthead, .skip { display:none; } .layout { display:block; padding:0; } .profile { position:static; } .profile-photo { width:80px; height:80px; } .publication,.text-record { break-inside:avoid; } }
@@ -180,8 +183,8 @@
       <img class="profile-photo" src="assets/profile.jpg" alt="김민준 프로필 사진" width="430" height="553">
       <h2 class="profile-name"><a href="#home" id="profile-name">김민준</a></h2>
       <p class="english-name">Minjun Kim</p>
-      <p class="degree">학부생<span class="en-inline">Undergraduate Student</span></p>
-      <p class="affiliation">국립공주대학교<span class="en">Kongju National University</span>전기전자제어공학부<span class="en">Department of Electrical, Electronic and Control Engineering</span>AI-EBS LAB</p>
+      <p class="degree">학부연구생<span class="en-inline">Undergraduate Researcher</span></p>
+      <p class="affiliation">국립공주대학교 전기전자제어공학부<span class="en">Department of Electrical, Electronic and Control Engineering, Kongju National University</span>AI-EBS LAB</p>
       <dl class="profile-details">
         <div><dt>지도교수</dt><dd>김선혁 교수<span class="en">Prof. Seon Hyeog Kim</span></dd></div>
         <!-- 이메일은 화면 글자와 mailto: 뒤의 주소를 함께 변경하세요. -->
@@ -289,9 +292,9 @@
       <section id="projects" class="page" aria-labelledby="projects-title">
         <p class="eyebrow">RESEARCH PROJECTS</p>
         <h1 id="projects-title">Projects</h1>
-        <!-- 과제 하나가 article 블록 하나입니다. 이미지는 전문기관 로고입니다. -->
+        <!-- 과제 하나가 article 블록 하나입니다. 왼쪽 이미지는 전문기관 로고, 지원 부처는 부처 로고입니다. -->
         <article class="publication">
-          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단 로고" width="662" height="283">
+          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단(NRF) 로고" width="506" height="168">
           <div>
             <p class="record-meta"><span>기초연구과제</span><span class="status">진행 중</span></p>
             <h2 class="record-title">AI Agent 기반 통합 진단 및 자율추론을 통한 제조공정 에너지 최적화 기술 개발</h2>
@@ -299,15 +302,15 @@
             <p class="summary">제조공정 에너지 이상탐지·원인분석·저감추론을 통합한 AI Agent 기반 에너지 최적화 기술 개발</p>
             <dl class="record-fields">
               <dt>참여 기간</dt><dd>2026.09 – 2031.08</dd>
-              <dt>사업명</dt><dd>개인기초연구(과기정통부)(R&amp;D)</dd>
-              <dt>지원 부처</dt><dd>과학기술정보통신부</dd>
+              <dt>사업명</dt><dd>우수연구-핵심연구(기본연구A)</dd>
+              <dt>지원 부처</dt><dd><img class="ministry-logo" src="assets/ministry-msit.png" alt="과학기술정보통신부" title="과학기술정보통신부" width="486" height="101"></dd>
               <dt>전문기관</dt><dd>한국연구재단(NRF)</dd>
               <dt>주관기관</dt><dd>국립공주대학교</dd>
             </dl>
           </div>
         </article>
         <article class="publication">
-          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단 로고" width="662" height="283">
+          <img class="research-image logo" src="assets/logo-nrf.png" alt="한국연구재단(NRF) 로고" width="506" height="168">
           <div>
             <p class="record-meta"><span>학술연구과제</span><span class="status">진행 중</span></p>
             <h2 class="record-title">이차전지 AI 파운데이션 모델 개발을 위한 데이터 표준화 전략 및 활용 기반 구축 방안 연구</h2>
@@ -315,15 +318,47 @@
             <p class="summary">이차전지 AI 파운데이션 모델 개발을 위한 실측-가상연계형 데이터 표준화 전략 수립</p>
             <dl class="record-fields">
               <dt>참여 기간</dt><dd>2026.07 – 2027.03</dd>
-              <dt>사업명</dt><dd>학술연구</dd>
-              <dt>지원 부처</dt><dd>과학기술정보통신부</dd>
+              <dt>사업명</dt><dd>정책연계형(국책)</dd>
+              <dt>지원 부처</dt><dd><img class="ministry-logo" src="assets/ministry-msit.png" alt="과학기술정보통신부" title="과학기술정보통신부" width="486" height="101"></dd>
               <dt>전문기관</dt><dd>한국연구재단(NRF)</dd>
               <dt>주관기관</dt><dd>국립공주대학교</dd>
             </dl>
           </div>
         </article>
         <article class="publication">
-          <img class="research-image logo" src="assets/logo-kiat.png" alt="한국산업기술진흥원 로고" width="475" height="125">
+          <img class="research-image logo" src="assets/logo-keit.png" alt="한국산업기술기획평가원(KEIT) 로고" width="900" height="437">
+          <div>
+            <p class="record-meta"><span>연구개발과제</span><span class="status">진행 중</span></p>
+            <h2 class="record-title">표면처리 명장 암묵지 학습 기반 AI 레시피 생성 및 공정 최적화 기술 개발</h2>
+            <p class="venue">AI-Driven Recipe Generation and Process Optimization Based on Tacit Knowledge of Surface Treatment Masters</p>
+            <p class="summary">표면처리 명장의 암묵지를 학습한 AI 기반 도금 레시피 추천, 불량 원인 추론 및 보정 레시피 제시 기술 개발</p>
+            <dl class="record-fields">
+              <dt>참여 기간</dt><dd>2026.06 – 2027.02</dd>
+              <dt>사업명</dt><dd>제조암묵지기반AI모델개발(R&amp;D)</dd>
+              <dt>지원 부처</dt><dd><img class="ministry-logo" src="assets/ministry-motir.png" alt="산업통상부" title="산업통상부" width="499" height="92"></dd>
+              <dt>전문기관</dt><dd>한국산업기술기획평가원(KEIT)</dd>
+              <dt>주관기관</dt><dd>로드피아</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="publication">
+          <img class="research-image logo" src="assets/logo-ketep.png" alt="한국에너지기술평가원(KETEP) 로고" width="900" height="511">
+          <div>
+            <p class="record-meta"><span>인력양성과제</span><span class="status">진행 중</span></p>
+            <h2 class="record-title">AI 기반 비송전 대안(NWA) 통합운영 및 설비진단 융합기술 지역에너지혁신센터</h2>
+            <p class="venue">Regional Energy Innovation Center for AI-Based Convergence Technology in Integrated Operation, Diagnostics, and Prognostics of Non-Wires Alternatives (NWA)</p>
+            <p class="summary">AI 기반 비송전 대안(NWA)의 계통 안정성·유연자원 운영·설비 신뢰성을 통합적으로 다루는 전력망 분석·운영 전문인력 양성</p>
+            <dl class="record-fields">
+              <dt>참여 기간</dt><dd>2026.04 – 2032.12</dd>
+              <dt>사업명</dt><dd>교육훈련</dd>
+              <dt>지원 부처</dt><dd><img class="ministry-logo" src="assets/ministry-mcee.png" alt="기후에너지환경부" title="기후에너지환경부" width="700" height="127"></dd>
+              <dt>전문기관</dt><dd>한국에너지기술평가원(KETEP)</dd>
+              <dt>주관기관</dt><dd>국립공주대학교 산학협력단</dd>
+            </dl>
+          </div>
+        </article>
+        <article class="publication">
+          <img class="research-image logo" src="assets/logo-kiat.png" alt="한국산업기술진흥원(KIAT) 로고" width="700" height="699">
           <div>
             <p class="record-meta"><span>연구개발과제</span><span class="status">진행 중</span></p>
             <h2 class="record-title">배터리·자동차 산업 대상 제품 전주기 탄소발자국 플랫폼(MCF) 개발 및 AI기술 기반 탄소저감 기술 개발</h2>
@@ -331,8 +366,8 @@
             <p class="summary">인공지능 기반의 MCF 분석 기능 및 탄소 저감 기술 개발</p>
             <dl class="record-fields">
               <dt>참여 기간</dt><dd>2025.05 – 2027.12</dd>
-              <dt>사업명</dt><dd>제조데이터표준인공지능활용제품전주기탄소중립지원기술개발(R&amp;D)</dd>
-              <dt>지원 부처</dt><dd>산업통상자원부</dd>
+              <dt>사업명</dt><dd>제조데이터표준인공지능활용제품전주기탄소중립지원기술개발</dd>
+              <dt>지원 부처</dt><dd><img class="ministry-logo" src="assets/ministry-motir.png" alt="산업통상부" title="산업통상부" width="499" height="92"></dd>
               <dt>전문기관</dt><dd>한국산업기술진흥원(KIAT)</dd>
               <dt>주관기관</dt><dd>한국전자통신연구원(ETRI)</dd>
             </dl>
