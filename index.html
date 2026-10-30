@@ -421,13 +421,16 @@
       document.title = name + ' | ' + pageLabels[current];
       if (moveFocus) { document.getElementById('main-content').focus({ preventScroll:true }); window.scrollTo(0,0); }
     }
-    // 과제 참여 기간의 "현재"는 총연구기간 마감일이 지나면 마감일로 바뀝니다.
-    document.querySelectorAll('#projects .record-fields').forEach(list => {
+    // 총연구기간 마감일이 지나면 참여 기간의 "현재"는 마감일로, 상태 표시는 "종료"로 바뀝니다.
+    document.querySelectorAll('#projects article').forEach(project => {
+      const list = project.querySelector('.record-fields');
       const value = label => [...list.querySelectorAll('dt')].find(dt => dt.textContent.trim() === label)?.nextElementSibling;
       const total = value('총연구기간'), period = value('참여 기간');
       const end = total?.textContent.match(/(\d{4})\.(\d{2})\.(\d{2})\s*$/);
-      if (!end || !period || !period.textContent.includes('현재')) return;
-      if (new Date() > new Date(+end[1], +end[2] - 1, +end[3], 23, 59, 59)) period.textContent = period.textContent.replace('현재', end[0].trim());
+      if (!end || new Date() <= new Date(+end[1], +end[2] - 1, +end[3], 23, 59, 59)) return;
+      if (period) period.textContent = period.textContent.replace('현재', end[0].trim());
+      const status = project.querySelector('.record-meta .status');
+      if (status) { status.textContent = '종료'; status.classList.add('pending'); }
     });
     window.addEventListener('hashchange', () => showPage(true));
     showPage();
